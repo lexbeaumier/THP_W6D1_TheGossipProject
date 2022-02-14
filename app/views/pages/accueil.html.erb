@@ -1,8 +1,16 @@
-<h1>Bienvenue <%= @user.first_name %> <%= @user.last_name %> sur notre putain de site de potins !</h1>
+<h1 class="row justify-content-center mb-5"> Bienvenue sur The Gossip Project</h1>
+<p class="row justify-content-center mb-5" style="color:#C7C7F1"> Parcours le mur des gossips pour voir les dernières nouveautés</p>
 
-<p>Tu es le <%= @random_number %>ème visiteur, viens réclamer ton prix ! </p>
 
-<form action="/" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
-  <input type="text" name="first_name">
-  <input type="submit" name="Envoyer">
+<div class="container row justify-content-center">
+<% @gossips.each do |gossip| %>
+
+<div class="card mb-3 mx-4 card-home" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= gossip.title %></h5>
+    <p class="card-text"><em><%= gossip.content %></em></p>
+    <a href="potin/<%=gossip.id%>" class="btn btn-primary">Voir le potin</a>
+  </div>
+</div>
+  <% end %>
+</div>
