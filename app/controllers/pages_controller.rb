@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def accueil
     puts params.inspect
     @gossips = Gossip.all
+    @users = User.all
   end
 
   #Définition de la page Team

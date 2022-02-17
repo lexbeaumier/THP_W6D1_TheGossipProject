@@ -8,6 +8,11 @@ Bundler.require(*Rails.groups)
 
 module TheGossipProject
   class Application < Rails::Application
+    config.site = {
+      name: 'TheGossipProject'
+    }
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

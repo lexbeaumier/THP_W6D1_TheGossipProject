@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_14_144159) do
+ActiveRecord::Schema.define(version: 2022_02_17_085243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,19 @@ ActiveRecord::Schema.define(version: 2022_02_14_144159) do
     t.datetime "updated_at", null: false
     t.bigint "city_id"
     t.index ["city_id"], name: "index_users_on_city_id"
+  end
+
+  create_table "utilisateurs", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.boolean "confirmed", default: false
+    t.string "confirmation_token"
+    t.string "password_digest"
+    t.string "firstname"
+    t.string "lastname"
+    t.boolean "avatar", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "affiliations", "gossips"
